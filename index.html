@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Websocket Client</title>
+    </head>
+    <body>
+        <output id="messages"></output>
+
+        <script>
+            const messages = document.getElementById("messages");
+            const socket = new WebSocket("ws://localhost:1337");
+            socket.onopen = (event) => console.log(`Websocket connected.`);
+            socket.onmessage = (message) =>
+                console.log(`I got a message! ${message}`);
+            socket.onerror = (error) =>
+                console.log(`Websocket error: ${error}`);
+            socket.onclose = (event) =>
+                console.log("Disconnected from Websocket server.");
+        </script>
+    </body>
+</html>
