@@ -17,15 +17,35 @@
                 console.log(`Websocket connected.`);
                 const id = Math.round(Math.random() * 100);
                 console.log(`sending... ${id}`);
-                const data = JSON.stringify({
-                    id,
-                    name: `[${id} From Client]`,
-                    address: {
-                        street: "my street",
-                        number: 20 * id,
+                const data = JSON.stringify([
+                    {
+                        id,
+                        name: `[${id} From Client]`,
+                        address: {
+                            street: "my street",
+                            number: 20 * id,
+                        },
+                        profession: "developer",
                     },
-                    profession: "developer",
-                });
+                    {
+                        id,
+                        name: `[${id} From Client]`,
+                        address: {
+                            street: "my street",
+                            number: 20 * id,
+                        },
+                        profession: "developer",
+                    },
+                    {
+                        id,
+                        name: `[${id} From Client]`,
+                        address: {
+                            street: "my street",
+                            number: 20 * id,
+                        },
+                        profession: "developer",
+                    },
+                ]);
 
                 socket.send(data);
             };
